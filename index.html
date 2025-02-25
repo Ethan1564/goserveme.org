@@ -3,62 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoServeMe - Volunteering Opportunities in MN</title>
+    <title>GoServeMe - Volunteer Opportunities in Minnesota</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts for cool typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="header-content">
-            <img src="images/logo.png" alt="GoServeMe Logo" class="logo">
-            <h1>Make a Difference in Minnesota!</h1>
-            <p>Discover volunteer opportunities near you and help build a better community.</p>
-        </div>
+        <h1>GoServeMe</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#opportunities">Opportunities</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Volunteer Opportunities Section -->
-    <section id="volunteer-list">
-        <h2>Current Volunteer Opportunities in Minnesota</h2>
+    <main>
+        <section id="hero">
+            <h2>Make a Difference in Minnesota</h2>
+            <p>Find meaningful volunteer opportunities and track your service hours</p>
+            <button id="get-started">Get Started</button>
+        </section>
 
-        <div class="opportunity-container">
-            <!-- Opportunity 1 -->
-            <div class="opportunity">
-                <h3>Advisory Commissions</h3>
-                <p>Shape Minnesota's future by joining city planning and policy committees.</p>
-                <button class="volunteer-btn">Apply Now</button>
-            </div>
+        <section id="about">
+            <h2>About GoServeMe</h2>
+            <p>We connect passionate volunteers with impactful opportunities across Minnesota.</p>
+        </section>
 
-            <!-- Opportunity 2 -->
-            <div class="opportunity">
-                <h3>Chaplaincy Corps</h3>
-                <p>Offer spiritual guidance during times of crisis in your local community.</p>
-                <button class="volunteer-btn">Apply Now</button>
-            </div>
+        <section id="opportunities">
+            <h2>Volunteer Opportunities</h2>
+            <div id="opportunity-list"></div>
+        </section>
 
-            <!-- Add More Opportunities Here -->
-        </div>
-    </section>
+        <section id="impact">
+            <h2>Your Impact</h2>
+            <div id="impact-stats"></div>
+        </section>
 
-    <!-- Donation Section -->
-    <section id="donation">
-        <h2>Support Us</h2>
-        <p>Your donations keep GoServeMe running and help spread the word about volunteering.</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="business" value="your-paypal-business-email@example.com">
-            <input type="hidden" name="item_name" value="GoServeMe Donation">
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="submit" value="Donate Now" class="donate-btn">
-        </form>
-    </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 GoServeMe | All Rights Reserved | Minnesota, USA</p>
+        <p>&copy; 2025 GoServeMe. All rights reserved.</p>
     </footer>
 
-    <!-- Script for Dynamic Zip Code Search (Placeholder) -->
     <script src="script.js"></script>
 </body>
 </html>
