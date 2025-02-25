@@ -1,44 +1,82 @@
-// Check if geolocation is available in the browser
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        // Get user's latitude and longitude
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
+document.addEventListener('DOMContentLoaded', () => {
+    const opportunityList = document.getElementById('opportunity-list');
+    const impactStats = document.getElementById('impact-stats');
+    const contactForm = document.getElementById('contact-form');
 
-        // Display user location in the console (or you can show it on the webpage)
-        console.log(`You are located at Latitude: ${latitude}, Longitude: ${longitude}`);
-
-        // You can use these coordinates to match volunteer opportunities by zip code or nearby locations
-        // For now, let's display an alert as a placeholder
-        alert(`Your current location is Latitude: ${latitude}, Longitude: ${longitude}`);
-        
-        // Here, you can extend this by matching zip codes or nearby places
-        // Example: Fetch relevant volunteer opportunities based on location
-    }, function(error) {
-        alert("Unable to retrieve your location.");
-    });
-} else {
-    alert("Geolocation is not supported by your browser.");
-}
-
-// Optional: Add a function to search by zip code (for users without geolocation)
-function searchByZip(zipCode) {
-    // Example of hardcoded data (could be dynamic from API)
+    // Sample volunteer opportunities
     const opportunities = [
-        { zip: "55125", opportunity: "Advisory Commissions", description: "Shape the future of Minnesota." },
-        { zip: "55128", opportunity: "Chaplaincy Corps", description: "Provide spiritual guidance in crises." }
+        { title: 'Community Garden Helper', location: 'Minneapolis', date: '2025-03-15' },
+        { title: 'Food Bank Volunteer', location: 'St. Paul', date: '2025-03-20' },
+        { title: 'Senior Center Assistant', location: 'Duluth', date: '2025-03-25' },
+        { title: 'Animal Shelter Walker', location: 'Rochester', date: '2025-04-01' },
     ];
 
-    // Find the opportunities matching the entered zip code
-    const filteredOpportunities = opportunities.filter(opportunity => opportunity.zip === zipCode);
+    // Display opportunities
+    opportunities.forEach(opportunity => {
+        const card = document.createElement('div');
+        card.classList.add('opportunity-card');
+        card.innerHTML = `
+            <h3>${opportunity.title}</h3>
+            <p>Location: ${opportunity.location}</p>
+            <p>Date: ${opportunity.date}</p>
+            <button>Sign Up</button>
+        `;
+        opportunityList.appendChild(card);
+    });
 
-    if (filteredOpportunities.length > 0) {
-        console.log("Found opportunities:", filteredOpportunities);
-        alert(`Found volunteer opportunities: ${filteredOpportunities.map(op => op.opportunity).join(", ")}`);
-    } else {
-        alert("No opportunities found for this zip code.");
-    }
-}
+    // Display impact stats
+    const stats = [
+        { label: 'Volunteers', value: 1000 },
+        { label: 'Hours Served', value: 5000 },
+        { label: 'Communities Impacted', value: 50 },
+    ];
 
-// Example: Call the searchByZip function (you can replace this with an input field for dynamic search)
-searchByZip("55125");
+    stats.forEach(stat => {
+        const statElement = document.createElement('div');
+        statElement.innerHTML = `
+            <div class="stat">${stat.value}</div>
+            <div>${stat.label}</div>
+        `;
+        impactStats.appendChild(statElement);
+    });
+
+    // Animate stats on scroll
+    const animateStats = () => {
+        const stats = document.querySelectorAll('.stat');
+        stats.forEach(stat => {
+            const value = parseInt(stat.textContent);
+            let current = 0;
+            const increment = value / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                stat.textContent = Math.round(current);
+                if (current >= value) {
+                    clearInterval(timer);
+                    stat.textContent = value;
+                }
+            }, 10);
+        });
+    };
+
+    // Trigger animation when impact section is in view
+    const impactSection = document.getElementById('impact');
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            animateStats();
+            observer.unobserve(impactSection);
+        }
+    });
+    observer.observe(impactSection);
+
+    // Handle form submission
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+    });
+
+    // Get started button smooth scroll
+    document.getElementById('get-started').addEventListener('click', () => {
+        document.getElementById('opportunities').scrollIntoView({ behavior: 'smooth' });
+    });
+});
