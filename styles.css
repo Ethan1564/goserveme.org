@@ -1,95 +1,139 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50c878;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #4caf50, #81c784); /* Gradient Background */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-header nav ul {
-    list-style-type: none;
+nav {
     display: flex;
-    justify-content: center;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-header nav ul li {
-    margin: 0 15px;
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-header nav ul li a {
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+}
+
+main {
+    padding-top: 80px;
 }
 
 section {
-    padding: 60px 20px;
-    margin: 40px 0;
-    text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Opportunities Section */
+#home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1600x900/?minnesota');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3d9970;
+}
+
 #opportunity-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
 }
 
 .opportunity-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 250px;
-    text-align: left;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease;
 }
 
-.cta-button {
-    background-color: #50c878;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+.opportunity-card:hover {
+    transform: translateY(-5px);
 }
 
-.cta-button:hover {
-    background-color: #3a9c63;
+form {
+    display: grid;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-/* Impact Section */
-.stat-grid {
-    display: flex;
-    justify-content: space-around;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-#impact-visualization {
+input, textarea {
     width: 100%;
-    height: 400px;
-    margin-top: 20px;
-    background-color: #222;
-}
-
-/* Styling for Impact Stats */
-.stat-number {
-    font-size: 36px;
-    font-weight: bold;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
 }
