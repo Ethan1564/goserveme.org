@@ -11,36 +11,42 @@ gsap.utils.toArray('section').forEach(section => {
             trigger: section,
             start: "top 80%",
             end: "top 20%",
-            scrub: true
+            scrub: true,
+            once: true // Ensures the animation only runs once when entering view
         }
     });
 });
 
 // Fetch and display volunteer opportunities
 async function fetchOpportunities() {
-    // This would be replaced with an actual API call
-    const mockOpportunities = [
-        { title: "Community Garden Helper", organization: "Green Thumbs MN", location: "Minneapolis", date: "2025-03-15" },
-        { title: "Food Bank Volunteer", organization: "MN Food Share", location: "St. Paul", date: "2025-03-20" },
-        { title: "Senior Center Assistant", organization: "Elder Care MN", location: "Duluth", date: "2025-03-25" },
-        { title: "Animal Shelter Walker", organization: "Paws and Claws Rescue", location: "Rochester", date: "2025-04-01" }
-    ];
+    try {
+        // Simulate an API call with mock data
+        const mockOpportunities = [
+            { title: "Community Garden Helper", organization: "Green Thumbs MN", location: "Minneapolis", date: "2025-03-15" },
+            { title: "Food Bank Volunteer", organization: "MN Food Share", location: "St. Paul", date: "2025-03-20" },
+            { title: "Senior Center Assistant", organization: "Elder Care MN", location: "Duluth", date: "2025-03-25" },
+            { title: "Animal Shelter Walker", organization: "Paws and Claws Rescue", location: "Rochester", date: "2025-04-01" }
+        ];
 
-    const opportunityList = document.getElementById('opportunity-list');
-    opportunityList.innerHTML = '';
+        const opportunityList = document.getElementById('opportunity-list');
+        opportunityList.innerHTML = '';
 
-    mockOpportunities.forEach(opportunity => {
-        const card = document.createElement('div');
-        card.classList.add('opportunity-card');
-        card.innerHTML = `
-            <h3>${opportunity.title}</h3>
-            <p><strong>Organization:</strong> ${opportunity.organization}</p>
-            <p><strong>Location:</strong> ${opportunity.location}</p>
-            <p><strong>Date:</strong> ${opportunity.date}</p>
-            <button onclick="applyForOpportunity('${opportunity.title}')" class="cta-button">Apply Now</button>
-        `;
-        opportunityList.appendChild(card);
-    });
+        mockOpportunities.forEach(opportunity => {
+            const card = document.createElement('div');
+            card.classList.add('opportunity-card');
+            card.innerHTML = `
+                <h3>${opportunity.title}</h3>
+                <p><strong>Organization:</strong> ${opportunity.organization}</p>
+                <p><strong>Location:</strong> ${opportunity.location}</p>
+                <p><strong>Date:</strong> ${opportunity.date}</p>
+                <button onclick="applyForOpportunity('${opportunity.title}')" class="cta-button">Apply Now</button>
+            `;
+            opportunityList.appendChild(card);
+        });
+    } catch (error) {
+        console.error("Error fetching opportunities:", error);
+        alert("There was an issue fetching volunteer opportunities.");
+    }
 }
 
 function applyForOpportunity(title) {
@@ -93,6 +99,13 @@ function createImpactVisualization() {
         renderer.render(scene, camera);
     }
     animate();
+
+    // Handle resizing for responsiveness
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayImpactStats();
     createImpactVisualization();
 
+    // Smooth scrolling for "Find Opportunities" button
     document.getElementById('find-opportunities').addEventListener('click', () => {
         document.getElementById('opportunities').scrollIntoView({ behavior: 'smooth' });
     });
