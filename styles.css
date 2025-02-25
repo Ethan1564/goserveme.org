@@ -1,139 +1,92 @@
-:root {
-    --primary-color: #4a90e2;
-    --secondary-color: #50c878;
-    --text-color: #333;
-    --background-color: #f4f4f4;
-}
-
-* {
-    box-sizing: border-box;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: #333;
 }
 
 header {
-    background-color: var(--primary-color);
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
+    background: #4CAF50;
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
 }
 
 nav ul {
-    display: flex;
     list-style: none;
+    padding: 0;
 }
 
 nav ul li {
-    margin-left: 1rem;
+    display: inline;
+    margin: 0 15px;
 }
 
-nav a {
+nav ul li a {
     color: white;
     text-decoration: none;
 }
 
-main {
-    padding-top: 80px;
-}
-
-section {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#home {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1600x900/?minnesota');
-    background-size: cover;
-    background-position: center;
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
     color: white;
+    padding: 100px 20px;
     text-align: center;
-    padding: 4rem 2rem;
 }
 
-#home h1 {
+.hero h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
 }
 
-button {
-    background-color: var(--secondary-color);
+.cta-button {
+    background: #FF5722;
     color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #3d9970;
-}
-
-#opportunity-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.opportunity-card {
-    background-color: white;
+    padding: 10px 20px;
+    text-decoration: none;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    transition: transform 0.3s ease;
 }
 
-.opportunity-card:hover {
-    transform: translateY(-5px);
+.programs, .volunteer, .events, .donate, .contact {
+    padding: 50px 20px;
+    text-align: center;
 }
 
-form {
-    display: grid;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
+.program-cards, .event-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 30%;
 }
 
 footer {
-    background-color: var(--primary-color);
+    background: #333;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 20px 0;
 }
 
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-    }
+footer .social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
