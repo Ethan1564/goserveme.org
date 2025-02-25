@@ -1,56 +1,44 @@
-// Geolocation Script to find user's location and show it on the map
-if (navigator.geolocation) {
+// Check if geolocation is available in the browser
+if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) {
-        var userLat = position.coords.latitude;
-        var userLng = position.coords.longitude;
-        
-        console.log("User's location: ", userLat, userLng);
+        // Get user's latitude and longitude
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
 
-        // You can use these coordinates to place a marker on the map or show a location to the user
-        var userLocation = { lat: userLat, lng: userLng };
-        initMap(userLocation);
+        // Display user location in the console (or you can show it on the webpage)
+        console.log(`You are located at Latitude: ${latitude}, Longitude: ${longitude}`);
+
+        // You can use these coordinates to match volunteer opportunities by zip code or nearby locations
+        // For now, let's display an alert as a placeholder
+        alert(`Your current location is Latitude: ${latitude}, Longitude: ${longitude}`);
+        
+        // Here, you can extend this by matching zip codes or nearby places
+        // Example: Fetch relevant volunteer opportunities based on location
     }, function(error) {
-        console.log("Geolocation Error: ", error);
-        alert("Unable to fetch your location.");
+        alert("Unable to retrieve your location.");
     });
 } else {
     alert("Geolocation is not supported by your browser.");
 }
 
-// Initialize Google Map with the user's location (or fallback to Woodbury, MN)
-function initMap(userLocation = { lat: 44.8746, lng: -92.9480 }) {
-    var map = new google.maps.Map(document.getElementById('map-container'), {
-        zoom: 12,
-        center: userLocation
-    });
+// Optional: Add a function to search by zip code (for users without geolocation)
+function searchByZip(zipCode) {
+    // Example of hardcoded data (could be dynamic from API)
+    const opportunities = [
+        { zip: "55125", opportunity: "Advisory Commissions", description: "Shape the future of Minnesota." },
+        { zip: "55128", opportunity: "Chaplaincy Corps", description: "Provide spiritual guidance in crises." }
+    ];
 
-    var marker = new google.maps.Marker({
-        position: userLocation,
-        map: map,
-        title: "Your Location"
-    });
+    // Find the opportunities matching the entered zip code
+    const filteredOpportunities = opportunities.filter(opportunity => opportunity.zip === zipCode);
+
+    if (filteredOpportunities.length > 0) {
+        console.log("Found opportunities:", filteredOpportunities);
+        alert(`Found volunteer opportunities: ${filteredOpportunities.map(op => op.opportunity).join(", ")}`);
+    } else {
+        alert("No opportunities found for this zip code.");
+    }
 }
 
-// Volunteer Form Submission
-function submitVolunteerForm(event) {
-    event.preventDefault();
-
-    // Get form data
-    const form = document.getElementById("volunteer-form");
-    const opportunityName = form.elements["name"].value;
-    const opportunityDescription = form.elements["description"].value;
-    const contactInfo = form.elements["contact"].value;
-
-    // Display the submitted information for now (you could later save this to a database or display it on the website)
-    console.log("Volunteer Opportunity Submitted: ", opportunityName, opportunityDescription, contactInfo);
-
-    alert("Thank you for submitting a volunteer opportunity!");
-
-    // Clear the form fields
-    form.reset();
-}
-
-// Event listener for form submission
-document.getElementById("volunteer-form").addEventListener("submit", submitVolunteerForm);
-
-// You can add more functionality as needed based on the features you want
+// Example: Call the searchByZip function (you can replace this with an input field for dynamic search)
+searchByZip("55125");
