@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThriveTogether - Empowering Minnesota Volunteers</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -30,12 +31,19 @@
 
         <section id="opportunities">
             <h2>Volunteer Opportunities</h2>
+            <!-- Dynamically populated cards will go here -->
             <div id="opportunity-list" class="card-grid"></div>
         </section>
 
         <section id="impact">
             <h2>Our Collective Impact</h2>
-            <div id="impact-stats" class="stat-grid"></div>
+            <div id="impact-stats" class="stat-grid">
+                <!-- Example stat: -->
+                <div class="stat-card">
+                    <h3>1,000+ Volunteers</h3>
+                    <p>Making a difference across Minnesota</p>
+                </div>
+            </div>
             <div id="impact-visualization"></div>
         </section>
 
@@ -49,6 +57,7 @@
         <p>&copy; 2025 ThriveTogether. Empowering Minnesota's volunteers.</p>
     </footer>
 
+    <!-- External JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
