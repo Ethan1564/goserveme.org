@@ -1,0 +1,111 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #2d87f0;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+header .logo {
+    width: 150px;
+    height: auto;
+}
+
+header h1 {
+    margin: 20px 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #f0f0f0;
+}
+
+/* Volunteer Opportunities Section */
+#volunteer-list {
+    padding: 20px;
+    margin: 20px;
+}
+
+h2 {
+    color: #2d87f0;
+    margin-bottom: 20px;
+}
+
+.opportunity {
+    background-color: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.opportunity h3 {
+    color: #2d87f0;
+}
+
+.opportunity a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #2d87f0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.opportunity a:hover {
+    background-color: #1a65a8;
+}
+
+/* Donation Section */
+#donation {
+    background-color: #f8f8f8;
+    padding: 30px;
+    text-align: center;
+}
+
+#donation h2 {
+    color: #2d87f0;
+    margin-bottom: 15px;
+}
+
+.donate-btn {
+    padding: 10px 30px;
+    background-color: #ffcc00;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.donate-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Footer */
+footer {
+    background-color: #2d87f0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1em;
+}
