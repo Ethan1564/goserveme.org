@@ -35,6 +35,12 @@
         <!-- Add More Volunteer Opportunities Here -->
     </section>
 
+    <!-- Interactive Map Section (Using Google Maps API or another API) -->
+    <section id="map">
+        <h2>Volunteer Locations</h2>
+        <div id="map-container" style="width: 100%; height: 400px;"></div>
+    </section>
+
     <!-- PayPal Donation Section -->
     <section id="donation">
         <h2>Support Us</h2>
@@ -52,6 +58,22 @@
     <footer>
         <p>&copy; 2025 GoServeMe - Woodbury, MN</p>
     </footer>
+
+    <!-- JavaScript to handle map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var woodbury = {lat: 44.8746, lng: -92.9480};
+            var map = new google.maps.Map(document.getElementById('map-container'), {
+                zoom: 12,
+                center: woodbury
+            });
+            var marker = new google.maps.Marker({
+                position: woodbury,
+                map: map
+            });
+        }
+    </script>
 
     <!-- JavaScript to handle geolocation -->
     <script src="script.js"></script>
