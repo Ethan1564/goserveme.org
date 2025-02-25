@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoServeMe - Volunteer Opportunities in Minnesota</title>
+    <title>ThriveTogether - Minnesota Volunteering</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 <body>
     <header>
-        <h1>GoServeMe</h1>
         <nav>
+            <div class="logo">ThriveTogether</div>
             <ul>
-                <li><a href="#about">About</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#opportunities">Opportunities</a></li>
-                <li><a href="#impact">Impact</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <h2>Make a Difference in Minnesota</h2>
-            <p>Find meaningful volunteer opportunities and track your service hours</p>
-            <button id="get-started">Get Started</button>
+        <section id="home">
+            <h1>Volunteer in Minnesota</h1>
+            <p>Find meaningful opportunities to make a difference in your community</p>
+            <button id="find-opportunities">Find Opportunities Near Me</button>
         </section>
 
-        <section id="about">
-            <h2>About GoServeMe</h2>
-            <p>We connect passionate volunteers with impactful opportunities across Minnesota.</p>
+        <section id="map-container">
+            <div id="map"></div>
         </section>
 
         <section id="opportunities">
@@ -36,9 +36,9 @@
             <div id="opportunity-list"></div>
         </section>
 
-        <section id="impact">
-            <h2>Your Impact</h2>
-            <div id="impact-stats"></div>
+        <section id="about">
+            <h2>About ThriveTogether</h2>
+            <p>We connect passionate volunteers with impactful opportunities across Minnesota.</p>
         </section>
 
         <section id="contact">
@@ -53,7 +53,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 GoServeMe. All rights reserved.</p>
+        <p>&copy; 2025 ThriveTogether. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
