@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThriveTogether - Empowering Minnesota Volunteers</title>
+    <title>ThriveTogether - Minnesota Volunteering</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <header>
@@ -15,42 +13,42 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#opportunities">Opportunities</a></li>
-                <li><a href="#impact">Impact</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Home Section -->
         <section id="home">
-            <h1>Empower Minnesota Through Volunteering</h1>
-            <p>Discover meaningful opportunities to make a difference in your community</p>
-            <button id="find-opportunities" class="cta-button">Find Opportunities Near Me</button>
+            <h1>Volunteer in Minnesota</h1>
+            <p>Find meaningful opportunities to make a difference in your community</p>
+            <button id="find-opportunities">Find Opportunities Near Me</button>
         </section>
 
-        <!-- Volunteer Opportunities Section -->
         <section id="opportunities">
             <h2>Volunteer Opportunities</h2>
-            <div id="opportunity-list" class="card-grid"></div>
+            <div id="opportunity-list"></div>
         </section>
 
-        <!-- Impact Section -->
-        <section id="impact">
-            <h2>Our Collective Impact</h2>
-            <div id="impact-stats" class="stat-grid"></div>
-            <div id="impact-visualization" class="visualization-container"></div>
-        </section>
-
-        <!-- About Section -->
         <section id="about">
             <h2>About ThriveTogether</h2>
-            <p>We're on a mission to connect passionate volunteers with impactful opportunities across Minnesota, fostering stronger communities and brighter futures.</p>
+            <p>We connect passionate volunteers with impactful opportunities across Minnesota.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 ThriveTogether. Empowering Minnesota's volunteers.</p>
+        <p>&copy; 2025 ThriveTogether. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
