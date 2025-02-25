@@ -3,54 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThriveTogether - Minnesota Volunteering</title>
+    <title>ThriveTogether - Empowering Kids, Strengthening Communities</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+    <!-- Header -->
     <header>
+        <div class="logo">
+            <img src="logo.png" alt="ThriveTogether Logo">
+            <h1>ThriveTogether</h1>
+        </div>
         <nav>
-            <div class="logo">ThriveTogether</div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#opportunities">Opportunities</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home">
-            <h1>Volunteer in Minnesota</h1>
-            <p>Find meaningful opportunities to make a difference in your community</p>
-            <button id="find-opportunities">Find Opportunities Near Me</button>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Empowering Kids. Strengthening Communities. Building Futures.</h2>
+            <p>Join us in creating thriving communities through education and service.</p>
+            <a href="#volunteer" class="cta-button">Get Involved</a>
+        </div>
+    </section>
 
-        <section id="opportunities">
-            <h2>Volunteer Opportunities</h2>
-            <div id="opportunity-list"></div>
-        </section>
+    <!-- About Us -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At ThriveTogether, we believe in the power of education and community service to transform lives. Our mission is to provide free tutoring for kids, connect volunteers with meaningful opportunities, and foster a culture of collaboration and growth.</p>
+    </section>
 
-        <section id="about">
-            <h2>About ThriveTogether</h2>
-            <p>We connect passionate volunteers with impactful opportunities across Minnesota.</p>
-        </section>
+    <!-- Programs -->
+    <section id="programs" class="programs">
+        <h2>Our Programs</h2>
+        <div class="program-cards">
+            <div class="card">
+                <h3>ThriveTutors</h3>
+                <p>Free, high-quality tutoring for underserved kids in core subjects and life skills.</p>
+            </div>
+            <div class="card">
+                <h3>ThriveVolunteers</h3>
+                <p>A platform to find and sign up for local volunteer opportunities.</p>
+            </div>
+            <div class="card">
+                <h3>ThriveCommunity</h3>
+                <p>Workshops, events, and community projects to empower families.</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="volunteer">
+        <h2>Volunteer With Us</h2>
+        <p>Find opportunities near you and make a difference.</p>
+        <input type="text" id="location" placeholder="Enter your city or ZIP code">
+        <button onclick="searchOpportunities()">Search</button>
+        <div id="results"></div>
+    </section>
 
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <h2>Upcoming Events</h2>
+        <div class="event-cards">
+            <div class="card">
+                <h3>ThriveFest</h3>
+                <p>A community fair with games, food, and workshops.</p>
+            </div>
+            <div class="card">
+                <h3>ThriveTalks</h3>
+                <p>Inspiring speakers on education and service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="donate">
+        <h2>Support Our Mission</h2>
+        <p>Your donation helps us empower kids and strengthen communities.</p>
+        <button onclick="window.location.href='donate.html'">Donate Now</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 ThriveTogether. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
