@@ -18,7 +18,7 @@ gsap.utils.toArray('section').forEach(section => {
 
 // Fetch and display volunteer opportunities
 async function fetchOpportunities() {
-    // This would be replaced with an actual API call
+    // Replace this with actual API calls
     const mockOpportunities = [
         { title: "Community Garden Helper", organization: "Green Thumbs MN", location: "Minneapolis", date: "2025-03-15" },
         { title: "Food Bank Volunteer", organization: "MN Food Share", location: "St. Paul", date: "2025-03-20" },
@@ -86,15 +86,13 @@ function createImpactVisualization() {
 
     camera.position.z = 10;
 
-    // The animation function to update the sphere's rotation
     function animate() {
         requestAnimationFrame(animate);
         sphere.rotation.x += 0.01;
         sphere.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
-    
-    animate(); // Start the animation loop
+    animate();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
